@@ -1,66 +1,91 @@
-# Mind Reading Card Game (Magic Number Guessing Game)
+##Password Strength Checker in C
 
-This is a C-based Mind Reading Card Game that magically guesses the number you selected from a set of cards.
-The logic is based on binary mathematics and card-based prediction.
+This project is a simple C program that analyzes a user-entered password and classifies it as:
+Strong
 
-## How the Game Works
-You choose any one number between 1 and 63 (secretly).
-The program displays 6 cards.
-For each card:
-If your number appears in the card → type 'y'
-If not → type 'n'
-Based on your answers, the program calculates your number using hidden binary logic.
-Your number is revealed at the end.
+Medium
 
-## Game Logic (Simple Explanation)
-Each card represents a binary position:
+Weak
 
-| Card | Binary Value |
-|------|--------------|
-| Card 1 | 1 |
-| Card 2 | 2 |
-| Card 3 | 4 |
-| Card 4 | 8 |
-| Card 5 | 16 |
-| Card 6 | 32 |
+The classification is based on the presence of:
 
-If you say 'yes', the value of that card is added.
-This sum exactly equals your chosen secret number.
+Uppercase letters
 
-## Features
-- 6 dynamically displayed number cards
-- User-friendly yes/no input
-- Hidden binary number prediction
-- Works for all numbers 1 to 63
-- Clean output and easy gameplay
+Lowercase letters
 
-## How to Run the Program
-1. Save the file as `main.c`
-2. Compile using: `gcc main.c -o game`
-3. Run using: `./game`
-4. Follow the on-screen instructions
+Digits
 
-## Sample Output
+Special characters
 
-------------Welcome to the card game------------
+Minimum required length
 
-Rule to play this game:
+##Features
 
-Select any 1 number from the first card and keep it in mind.
-You will be shown cards. If your number appears, type 'y'. If not, type 'n'.
-Your number will be revealed based on your answers.
+✔ Reads a password from the user
+✔ Checks password length
+✔ Counts uppercase, lowercase, digits, and special characters
+✔ Classifies the password as Strong / Medium / Weak
+✔ Displays a detailed breakdown of password composition
 
-------Here is the first card--------
+##How It Works
 
-2 3 6 7 10 11 14 15 18 19 22 23 26 27 30 31 34 35 38 39 42 43 46 47 50 51 54 55 58 59 62 63
+The program scans each character of the password using a for loop and increments counters accordingly:
 
-Is the number in this card (y/n): y
+uc → uppercase count
 
-------Here is your 2 card--------
-...
+lc → lowercase count
 
-Your number is : 27
+dg → digit count
+
+sp → special character count
+
+Then it checks:
+
+Strong Password
+
+At least 8 characters
+
+Contains 1 uppercase
+
+Contains 1 lowercase
+
+Contains 1 digit
+
+Contains 1 special character
+
+Medium Password
+
+At least 6 characters
+
+Contains all character types (uppercase, lowercase, digit, special)
+
+Weak Password
+
+Anything failing the above rules
+
+##Sample Output
+
+Enter Your password: Abc@1234 
+
+Your password is strong
+
+Your password length is:8
+
+Your password contain digit:2
+
+Your password conatin upercase:1 and lowercase:3
+
+your password conatins special character:1
+
+You can go for this password.
 
 
-## Author
+##How to Run
+
+Save the file as password_checker.c
+
+Compile the program and run.
+
+##Author
+
 Kanishka Jain
